@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Citation block.
+ */
+#}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Ver Cita
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">APA 7ma Edición</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <i class="fa fa-quote-left"></i><strong> Cómo citar este objeto de aprendizaje</strong>
+        <div class="highlight">
+          <button
+            class="btn copy-cite"
+            data-clipboard-action="copy"
+            data-clipboard-target=".highlight"
+            data-toggle="tooltip"
+            data-placement="top" title="Copiar en portapapeles">
+              <i class="fas fa-paste"></i>
+          </button>
+          <p>{% for key, autor in autores %}
+                  {{ autor }}
+                  {% if key  == loop.length -2 %}
+                  y&nbsp;
+                  {% elseif key < loop.length -1 %}
+                  ;&nbsp;
+                  {% else %}
+                  &nbsp;
+                  {% endif %}
+                {% endfor %}
+          ({{fecha|date("Y")}}). <i>{{titulo}}{% if tipo == 'Book page' %} en {{ptitulo}}{% endif %}.</i> {{ drupal_config('system.site', 'name') }}, UNAM. https://portalacademico.cch.unam.mx{{ drupal_url(url) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper citation--block">
+
+</div>

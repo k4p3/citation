@@ -1,0 +1,17 @@
+{
+    "name": "base/citation",
+    "description": "Modulo para hacer Citas en formato APA",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Jonathan Bailon Segura",
+            "email": "jonn59@gmail.com",
+            "homepage": "https://tecnobase.mx",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "drupal/core": "^8 || ^9"
+    }
+}

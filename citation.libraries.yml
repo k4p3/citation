@@ -1,0 +1,8 @@
+citation-libraries:
+  version: 1.x
+  css:
+    component:
+      css/citation.css: {}
+  js:
+    js/clipboard.min.js: {}
+    js/citation.js: {}

@@ -1,0 +1,3 @@
+services:
+  citation.helper_functions:
+    class: Drupal\citation\Utils\MyHelperFunctions

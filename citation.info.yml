@@ -1,0 +1,11 @@
+name: 'Citation'
+type: module
+description: 'Citation in format APA'
+package: 'Custom'
+core_version_requirement: ^8.8 || ^9
+version: 1
+dependencies:
+  - block
+  - twig_tweak
+'interface translation project': citation
+'interface translation server pattern': modules/custom/citation/translations/citation-%language.po

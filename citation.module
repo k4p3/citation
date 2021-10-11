@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Citation module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function citation_theme() {
+  return [
+    'citation_block' => [
+      'variables' => [
+        'nodo'    => NULL,
+        'url'     => NULL,
+        'titulo'  => NULL,
+        'autores' => NULL,
+        'fecha'   => NULL,
+        'ptitulo' => NULL,
+        'tipo'    => NULL,
+      ],
+    ],
+  ];
+}
