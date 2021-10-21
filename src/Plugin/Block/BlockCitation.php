@@ -30,7 +30,6 @@ class BlockCitation extends BlockBase {
     $types = NodeType::loadMultiple();
     $bundle = $node->bundle();
     $type_name = $types[$bundle]->label();
-    $autores = $this->get_autores($node->get('field_autoria')->value);
     $pid = $node->book['pid'];
 
     if (is_numeric($node)) {
@@ -40,8 +39,14 @@ class BlockCitation extends BlockBase {
     if ($pid > 0 ){
       $pnode = Node::load($pid);
       $ptitulo = $pnode->get('title')->value;
+      $autores = $this->get_autores($pnode->get('field_autoria')->value);
+      $titulo  = $pnode->get('title')->value;
+      $fecha   = $pnode->get('field_fecha_publicacion')->value;
     }else{
       $ptitulo = '';
+      $autores = $this->get_autores($node->get('field_autoria')->value);
+      $titulo  = $node->get('title')->value;
+      $fecha   = $node->get('field_fecha_publicacion')->value;
     }
 
     if ($node instanceof NodeInterface) {
@@ -50,9 +55,9 @@ class BlockCitation extends BlockBase {
         '#url'                        => $alias,
         '#nodo'                       => $node->id(),
         '#autores'                    => $autores,
-        '#titulo'                     => $node->get('title')->value,
+        '#titulo'                     => $titulo,
         '#theme'                      => 'citation_block',
-        '#fecha'                      => $node->get('field_fecha_publicacion')->value,
+        '#fecha'                      => $fecha,
         '#ptitulo'                    => $ptitulo,
         '#tipo'                       => $type_name,
         '#cache'                      => [
