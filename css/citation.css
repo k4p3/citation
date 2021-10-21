@@ -1,0 +1,19 @@
+#citationButtom{
+  width: auto;
+  position: relative;
+  font-size: 14px;
+  padding: 0 10px;
+  background: #724b6d;
+  border: 1px solid transparent;
+  border-radius: 1500px;
+  font-weight: 400;
+  color:#fff;
+}
+#citationButtom i{
+  margin-right: 0px;
+}
+
+#citationButtom:hover i,
+#citationButtom:hover svg{
+  transform: scale(1.1);
+}
