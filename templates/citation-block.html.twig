@@ -16,7 +16,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">APA 7ma Edición</h5>
+        <h5 class="modal-title" id="exampleModalLabel">APA 7ma Edición {{tipo}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -42,7 +42,7 @@
                   &nbsp;
                   {% endif %}
                 {% endfor %}
-          ({{fecha|date("Y")}}). <i>{{titulo}}{% if tipo == 'Book page' %} en {{ptitulo}}{% endif %}.</i> {{ drupal_config('system.site', 'name') }}, UNAM. https://portalacademico.cch.unam.mx{{ drupal_url(url) }}</p>
+          ({{fecha|date("Y")}}). <i>{{titulo}}{% if tipo == 'Página de libro' %} en {{ptitulo}}{% endif %}.</i> {{ drupal_config('system.site', 'name') }}, UNAM. https://portalacademico.cch.unam.mx{{ drupal_url(url) }}</p>
         </div>
       </div>
     </div>

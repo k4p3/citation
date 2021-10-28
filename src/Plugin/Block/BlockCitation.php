@@ -36,11 +36,11 @@ class BlockCitation extends BlockBase {
       $node = Node::load($node);
     }
 
-    if ($pid > 0 ){
+    if ($type_name != 'Portada' ){
       $pnode = Node::load($pid);
       $ptitulo = $pnode->get('title')->value;
       $autores = $this->get_autores($pnode->get('field_autoria')->value);
-      $titulo  = $pnode->get('title')->value;
+      $titulo  = $node->get('title')->value;
       $fecha   = $pnode->get('field_fecha_publicacion')->value;
     }else{
       $ptitulo = '';
