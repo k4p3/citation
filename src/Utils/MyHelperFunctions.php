@@ -20,7 +20,7 @@
       return $site[1];
     }
 
-    public function splitName($full_name){
+    public static function splitName($full_name){
       /* separar el nombre completo en espacios */
       $tokens = explode(' ', trim($full_name));
       /* arreglo donde se guardan las "palabras" del nombre */
@@ -42,9 +42,7 @@
 
       $num_nombres = count($names);
       $nombres = $apellidos = $apellido1 = "";
-      /*print_r($names);
-      print($num_nombres);
-      exit();*/
+
       switch ($num_nombres) {
           case 0:
               $nombres = '';
