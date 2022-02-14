@@ -37,11 +37,26 @@ class BlockCitation extends BlockBase {
     }
 
     if ($type_name != 'Portada' ){
+
       $pnode = Node::load($pid);
-      $ptitulo = $pnode->get('title')->value;
-      $autores = $this->get_autores($pnode->get('field_autoria')->value);
-      $titulo  = $node->get('title')->value;
-      $fecha   = $pnode->get('field_fecha_publicacion')->value;
+      //$fieldName = 'field_autoria';
+      
+      if ($pnode->hasField('field_autoria')) {
+        //$field = $pnode->get('field_autoria');
+        /*if (!$field->isEmpty()) {*/
+          //$fieldValue = $field->value;
+          
+          $ptitulo = $pnode->get('title')->value;
+          $autores = $this->get_autores($pnode->get('field_autoria')->value);
+          $titulo  = $node->get('title')->value;
+          $fecha   = $pnode->get('field_fecha_publicacion')->value;
+        /*}*/
+      }else{
+        $ptitulo = '';
+        $titulo  = $node->get('title')->value;
+        $fecha   =  '';
+        $autores = '';
+      }
     }else{
       $ptitulo = '';
       $autores = $this->get_autores($node->get('field_autoria')->value);

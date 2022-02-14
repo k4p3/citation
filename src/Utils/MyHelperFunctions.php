@@ -42,6 +42,7 @@
 
       $num_nombres = count($names);
       $nombres = $apellidos = $apellido1 = "";
+      $nombres_iniciales = '';
 
       switch ($num_nombres) {
           case 0:
