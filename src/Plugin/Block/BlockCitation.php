@@ -34,34 +34,35 @@ class BlockCitation extends BlockBase {
 
     if (is_numeric($node)) {
       $node = Node::load($node);
-    }
 
-    if ($type_name != 'Portada' ){
+      if ($type_name != 'Portada' ){
+        if (is_numeric($pid)) {
+          $pnode = Node::load($pid);
+          //$fieldName = 'field_autoria';
 
-      $pnode = Node::load($pid);
-      //$fieldName = 'field_autoria';
-      
-      if ($pnode->hasField('field_autoria')) {
-        //$field = $pnode->get('field_autoria');
-        /*if (!$field->isEmpty()) {*/
-          //$fieldValue = $field->value;
-          
-          $ptitulo = $pnode->get('title')->value;
-          $autores = $this->get_autores($pnode->get('field_autoria')->value);
-          $titulo  = $node->get('title')->value;
-          $fecha   = $pnode->get('field_fecha_publicacion')->value;
-        /*}*/
+          if ($pnode->hasField('field_autoria')) {
+            //$field = $pnode->get('field_autoria');
+            /*if (!$field->isEmpty()) {*/
+              //$fieldValue = $field->value;
+
+              $ptitulo = $pnode->get('title')->value;
+              $autores = $this->get_autores($pnode->get('field_autoria')->value);
+              $titulo  = $node->get('title')->value;
+              $fecha   = $pnode->get('field_fecha_publicacion')->value;
+            /*}*/
+          }else{
+            $ptitulo = '';
+            $titulo  = $node->get('title')->value;
+            $fecha   =  '';
+            $autores = '';
+          }
+        }
       }else{
         $ptitulo = '';
+        $autores = $this->get_autores($node->get('field_autoria')->value);
         $titulo  = $node->get('title')->value;
-        $fecha   =  '';
-        $autores = '';
+        $fecha   = $node->get('field_fecha_publicacion')->value;
       }
-    }else{
-      $ptitulo = '';
-      $autores = $this->get_autores($node->get('field_autoria')->value);
-      $titulo  = $node->get('title')->value;
-      $fecha   = $node->get('field_fecha_publicacion')->value;
     }
 
     if ($node instanceof NodeInterface) {
