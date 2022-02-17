@@ -32,8 +32,8 @@ class BlockCitation extends BlockBase {
     $type_name = $types[$bundle]->label();
     $pid = $node->book['pid'];
 
-    if (is_numeric($node)) {
-      $node = Node::load($node);
+    //if (is_numeric($node)) {
+    //  $node = Node::load($node);
 
       if ($type_name != 'Portada' ){
         if (is_numeric($pid)) {
@@ -56,7 +56,7 @@ class BlockCitation extends BlockBase {
         $titulo  = $node->get('title')->value;
         $fecha   = $node->get('field_fecha_publicacion')->value;
       }
-    }
+    //}
 
     if ($node instanceof NodeInterface) {
       //$data = addtoany_create_entity_data($node);
